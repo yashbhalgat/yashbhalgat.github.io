@@ -64,6 +64,38 @@
 	</table>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+	  <tr onmouseout="struct_stop()" onmouseover="struct_start()">
+            <td style="padding:20px;width:33%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='struct_image'>
+                  <img src='images/struct.png' width=240></div>
+                <img src='images/struct_other.png' width=240>
+              </div>
+              <script type="text/javascript">
+                function struct_start() {
+                  document.getElementById('struct_image').style.opacity = "1";
+                }
+
+                function struct_stop() {
+                  document.getElementById('struct_image').style.opacity = "0";
+                }
+                struct_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:67%;vertical-align:middle">
+		    <a href="https://arxiv.org/pdf/2008.02454.pdf"><papertitle>Structured Convolutions for Efficient Neural Network Design</papertitle></a>
+              <br>
+	      <strong>Yash Bhalgat</strong>,
+              <a href="https://scholar.google.com/citations?user=u93s1AUAAAAJ&hl=en">Yizhe Zhang</a>,
+              <a href="https://www.linkedin.com/in/jmjlin">Jamie Lin</a>,
+              <a href="http://www.porikli.com/">Fatih Porikli</a>,
+              <br>
+        <em>NeurIPS</em>, 2020  
+              <br>
+              <p>We introduce a neat trick to enable the execution of convolution operations in the form of efficient, scaled, sum-pooling components. We present a Structural Regularization loss that enables this decomposition with negligible performance loss. Our method is competitive with other tensor decomposition and structured pruning methods.</p>
+            </td>
+          </tr>
+	
           <tr onmouseout="ff_stop()" onmouseover="ff_start()">
             <td style="padding:20px;width:33%;vertical-align:middle">
               <div class="one">
