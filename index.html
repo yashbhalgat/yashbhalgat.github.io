@@ -66,7 +66,40 @@
 	</table>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-	  <tr onmouseout="struct_stop()" onmouseover="struct_start()">
+
+          <tr onmouseout="datainit_stop()" onmouseover="datainit_start()">
+            <td style="padding:20px;width:33%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='datainit_image'>
+                  <img src='images/datainit.png' width=240></div>
+                <img src='images/datainit_other.png' width=240>
+              </div>
+              <script type="text/javascript">
+                function datainit_start() {
+                  document.getElementById('datainit_image').style.opacity = "1";
+                }
+
+                function datainit_stop() {
+                  document.getElementById('datainit_image').style.opacity = "0";
+                }
+                datainit_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:67%;vertical-align:middle">
+                    <a href="https://arxiv.org/pdf/2105.10335.pdf"><papertitle>Data-driven Weight Initialization with Sylvester Solvers
+</papertitle></a>
+              <br>
+	      <a href="https://scholar.google.com/citations?user=0tP8MuMAAAAJ&hl=en">Debasmit Das</a>,
+              <strong>Yash Bhalgat</strong>,
+	      <a href="http://www.porikli.com/">Fatih Porikli</a>
+              <br>
+        <em>Practical Machine Learning for Developing Countries Workshop, ICLR</em>, 2021
+              <br>
+              <p>We propose a data-driven scheme to initialize the parameters of a neural network. The initialization is cast as an optimization problem, which is restructured into the well-known Sylvester equation that has fast and efficient gradient-free solutions. We show that our proposed method is especially effective in few-shot and fine-tuning settings.</p>
+            </td>
+          </tr>
+
+	<tr onmouseout="struct_stop()" onmouseover="struct_start()">
             <td style="padding:20px;width:33%;vertical-align:middle">
               <div class="one">
                 <div class="two" id='struct_image'>
@@ -90,7 +123,7 @@
 	      <strong>Yash Bhalgat</strong>,
               <a href="https://scholar.google.com/citations?user=u93s1AUAAAAJ&hl=en">Yizhe Zhang</a>,
               <a href="https://www.linkedin.com/in/jmjlin">Jamie Lin</a>,
-              <a href="http://www.porikli.com/">Fatih Porikli</a>,
+              <a href="http://www.porikli.com/">Fatih Porikli</a>
               <br>
         <em>NeurIPS</em>, 2020  
               <br>
@@ -123,7 +156,7 @@
               <a href="https://www.linkedin.com/in/jinwon-lee-6ba13a7">Jinwon Lee</a>,
               <a href="https://scholar.google.com/citations?user=akNuBBEAAAAJ&hl=en">Markus Nagel</a>,
               <a href="https://scholar.google.com/citations?user=OGEyrG8AAAAJ&hl=en">Tijmen Blankevoort</a>,
-              <a href="https://scholar.google.com/citations?user=h_8-1M0AAAAJ&hl=en">Nojun Kwak</a>,
+              <a href="https://scholar.google.com/citations?user=h_8-1M0AAAAJ&hl=en">Nojun Kwak</a>
               <br>
         <em>Efficient Deep Learning in Computer Vision Workshop, CVPR</em>, 2020  
               <br>
@@ -253,7 +286,7 @@ Method for Unlabeled Data Exploitation</papertitle></a>
               <br>
               <strong>Yash Bhalgat*</strong>,
               <a href="https://meetshah1995.github.io/">Meet Shah*</a>
-              <a href="https://www.cse.iitb.ac.in/~suyash/">Suyash Awate</a>,
+              <a href="https://www.cse.iitb.ac.in/~suyash/">Suyash Awate</a>
               <br>
               <em>Medical Imaging meets NeurIPS workshop</em>, 2019
               <br>
