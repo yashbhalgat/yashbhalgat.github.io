@@ -73,6 +73,38 @@
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+          <tr onmouseout="epi_stop()" onmouseover="epi_start()">
+            <td style="padding:20px;width:33%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='epi_image'>
+                  <img src='images/epi_main.PNG' width=240></div>
+                <img src='images/epi_viz.PNG' width=240>
+              </div>
+              <script type="text/javascript">
+                function epi_start() {
+                  document.getElementById('epi_image').style.opacity = "1";
+                }
+
+                function epi_stop() {
+                  document.getElementById('epi_image').style.opacity = "0";
+                }
+                epi_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:67%;vertical-align:middle">
+                    <a href="https://arxiv.org/abs/2211.15107"><papertitle>A Light Touch Approach to Teaching Transformers Multi-view Geometry
+</papertitle></a>
+              <br>
+              <strong>Yash Bhalgat</strong>,
+	      <a href="https://www.robots.ox.ac.uk/~joao/" target="_blank" rel="noopener noreferrer">Jo&atilde;o Henriques</a>,
+	      <a href="https://www.robots.ox.ac.uk/~az/" target="_blank" rel="noopener noreferrer">Andrew Zisserman</a>
+              <br>
+        <em>Computer Vision and Pattern Recognition (CVPR)</em>, 2023
+              <br>
+	      <p>We propose an <em><b>Epipolar Loss</b></em> to incorporate multi-view geometric priors into Transformers that improves downstream performance. This loss can be implemented in <em>less than 150 lines of code</em>. <!--We show that: (1) by training a multi-view transformer (such as <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Tan_Instance-Level_Image_Retrieval_Using_Reranking_Transformers_ICCV_2021_paper.pdf" target="_blank" rel="noopener noreferrer">RRT</a>) with this loss, the transformer model learns to use geometric priors during inference which leads to better performance, and (2) --> Compared to the <a href="https://www.deepmind.com/publications/input-level-inductive-biases-for-3d-reconstruction" target="_blank" rel="noopener noreferrer"><u>"explicit" method</u></a>, our method removes the requirement of epipolar geometry input at test time, which is a strong assumption since there are many practical use-cases where relative pose/geometry information is unavailable.</p>
+            </td>
+          </tr>
+
           <tr onmouseout="dirnet_stop()" onmouseover="dirnet_start()">
             <td style="padding:20px;width:33%;vertical-align:middle">
               <div class="one">
