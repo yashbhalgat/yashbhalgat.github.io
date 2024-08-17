@@ -71,7 +71,7 @@ a {
 a:focus,
 a:hover {
   color: #f09228;
-  text-decoration: none;
+  text-decoration: underline; /* Optional: Adds underline on hover */
 }
 
 body,
@@ -105,6 +105,15 @@ name {
   font-size: 32px;
 }
 
+.large-text {
+  font-size: 16px;
+}
+
+/* In your stylesheet.css */
+.large-link {
+  font-size: 16px; /* Customize as needed */
+}
+
 .one {
   width: 160px;
   height: 160px;
@@ -130,3 +139,57 @@ span.highlight {
   background-color: #ffffd0;
 }
 
+
+/* Refined Sticky Navigation Bar */
+.navbar {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar ul li a:hover {
+  color: #1772d0;
+  text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
+/* Subtle Call to Action Button */
+.cta-button {
+  display: inline-block;
+  background-color: #1772d0;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+.cta-button:hover {
+  background-color: #145c9e;
+}
