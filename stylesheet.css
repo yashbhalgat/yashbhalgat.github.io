@@ -105,6 +105,11 @@ name {
   font-size: 32px;
 }
 
+ul#news {
+  height: 178px;
+  overflow-y: auto;
+}
+
 .large-text {
   font-size: 16px;
 }
