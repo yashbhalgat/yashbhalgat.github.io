@@ -1,0 +1,385 @@
+<head>
+    <title>N2F2: Hierarchical Scene Understanding with Nested Neural Feature Fields
+    </title>
+
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+    <meta charset="utf-8">
+
+    <meta property="og:image" content="resources/pipeline.png"/>
+    <meta property="og:title" content="N2F2: Hierarchical Scene Understanding with Nested Neural Feature Fields." />
+        
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <style>
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* greek-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <div role="alert" id='alert-if-safari'></div>
+
+    <script>
+        
+        var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        if (is_safari) {
+            const alert_div = document.getElementById('alert-if-safari')
+            alert_div.className = 'alert alert-danger'
+            alert_div.innerHTML = 'Videos below sometimes do not load in Safari. Please view our webpage on Chrome/Firefox until we repair this.'
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mb-2 mt-4" id="paper-title">
+            <h1 class="col-md-12 text-center">
+                N2F2
+            </h1>
+            <h3 class="col-md-12 text-center">
+                Hierarchical Scene Understanding with Nested Neural Feature Fields
+            </h3>
+            <h3 class="col-md-12 text-center">
+                <small>ECCV 2024</small>
+            </h3>
+        </div>
+
+        <div class="row" id="authors">
+            <div class="mx-auto text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a href="https://yashbhalgat.github.io/">Yash Bhalgat </a>
+                    </li> &nbsp; &nbsp;
+
+                    <li class="list-inline-item">
+                        <a href="https://campar.in.tum.de/Main/IroLaina">Iro Laina </a>
+                    </li> &nbsp; &nbsp;
+
+                    <li class="list-inline-item">
+                        <a href="https://www.robots.ox.ac.uk/~joao/">Jo&atilde;o F. Henriques </a>
+                    </li> 
+                </ul>
+                
+                <ul class="list-inline mb-0">    
+                    <li class="list-inline-item">
+                        <a href="https://www.robots.ox.ac.uk/~az/">Andrew Zisserman </a>
+                    </li> &nbsp; &nbsp;
+
+                    <li class="list-inline-item">
+                        <a href="https://www.robots.ox.ac.uk/~vedaldi/">Andrea Vedaldi </a>
+                    </li> 
+                </ul>
+                <p id="institution" >
+                    <a href="https://www.robots.ox.ac.uk/~vgg/" >Visual Geometry Group </a> @ University of Oxford
+                </p>
+            </div>
+        </div>
+        <div class="row mb-2" id="links">
+            <div class="mx-auto">
+                <ul class="nav">
+                    <li class="nav-item text-center">
+                        <a href="https://arxiv.org/abs/2306.04633" class="nav-link" >
+                            <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z" />
+                            </svg><br>
+                            Paper
+                        </a>
+                    <!-- <li class="nav-item text-center">
+                        <a href="https://github.com/yashbhalgat/Contrastive-Lift" class="nav-link">
+                            <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg><br>
+                            Code
+                        </a>
+                    <li class="nav-item text-center">
+                        <a href="https://figshare.com/s/b195ce8bd8eafe79762b" class="nav-link">
+                            <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" />
+                            </svg><br>
+                            Data
+                        </a> -->
+                    <li class="nav-item text-center">
+                        <a href="https://www.youtube.com/watch?v=qMR6N4hvwIo" class="nav-link">
+                            <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                                <rect x="1" y="1.8" width="22" height="20" rx="6" ry="6" fill="none" stroke="currentColor" stroke-width="2" />
+                                <path fill="currentColor" d="M10 7L16 12L10 17Z" />
+                            </svg><br>
+                            Video
+                        </a>                        
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="teaser-two" width="100%">
+                        <div class="mx-auto">
+                            <div class="row gif-label">
+                                <div class="col text-center"><h4>Input scene</h4></div>
+                                <div class="col text-center"><h4>Query: <i>toy chair</i></h4></div>
+                                <div class="col text-center"><h4>Query: <i>green toy chair</i></h4></div>
+                                <div class="col text-center"><h4>Query: <i>red toy chair</i></h4></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="images/original.gif" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col">
+                                    <img src="images/toy_chair.gif" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col">
+                                    <img src="images/green_toy_chair.gif" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                                <div class="col">
+                                    <img src="images/red_toy_chair.gif" playsinline="" controls autoplay="" loop="" preload="" muted="" width="100%"/>
+                                </div>
+                            </div>
+                        </div>
+        </div> <!-- row -->
+                <br>
+                <p class="text-justify">
+                    <b>TL;DR</b>: We propose an approach to learn a single feature field that encodes scene properties at varying granularities, enabling a comprehensive understanding of scenes. We leverage a 2D segmentation model and CLIP embeddings to distill features at varying physical scales. The resulting 3D representation can be queried to obtain crisp localized segmentations.
+                    <span style="color:red;"><i>Refresh page to synchronize the GIFs.</i></span>
+                </p>
+            </div>
+        </div>
+        <br>
+
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <h2>Abstract</h2>
+                <p class="text-justify">
+                    Understanding complex scenes at multiple levels of abstraction remains a formidable challenge in computer vision. To address this, we introduce Nested Neural Feature Fields (N2F2), a novel approach that employs hierarchical supervision to learn a single feature field, wherein different dimensions within the same high-dimensional feature encode scene properties at varying granularities. Our method allows for a flexible definition of hierarchies, tailored to either the physical dimensions or semantics or both, thereby enabling a comprehensive and nuanced understanding of scenes. We leverage a 2D class-agnostic segmentation model to provide semantically meaningful pixel groupings at arbitrary scales in the image space, and query the CLIP vision-encoder to obtain language-aligned embeddings for each of these segments. Our proposed hierarchical supervision method then assigns different nested dimensions of the feature field to distill the CLIP embeddings using deferred volumetric rendering at varying physical scales, creating a coarse-to-fine representation. Extensive experiments show that our approach outperforms the state-of-the-art feature field distillation methods on tasks such as open-vocabulary 3D segmentation and localization, demonstrating the effectiveness of the learned nested feature field.
+                </p>
+            </div>
+        </div>
+
+        <!-- <br>
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <h2>Video</h2>
+                <h4 class="text-center">
+                    (Coming soon...)
+                </h4>
+            </div>
+        </div> -->
+
+        <br>
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <h2>Architecture</h2>
+            </div>
+        </div>
+        <div class="row mb-3" >
+        <div class="col-md-6 mx-auto" >
+            <div>
+                <img src="images/n2f2_arch.png" class="img-responsive" alt="pipeline" width="100%">
+            </div>
+            <p class="text-justify">
+                <b>Overview of the N2F2 architecture.</b> <i>Left</i>: N2F2 employs 3D Gaussian Splatting (3DGS) to represent the scene, augmented with a feature field that captures scene properties across
+                different scales and semantic granularities. Middle: Different subsets of the same feature
+                vectors encode scene properties at varying scales. This unified feature field is optimized
+                using a hierarchical supervision loss applied to the scale-aware features. <i>Right</i>: We extract a pool of segments using SAM and pre-compute a CLIP embedding for each.
+                Each segment is assigned a physical scale computed using the 3DGS model, which is
+                then used to compute the scale-aware feature.
+            </p>
+        </div>
+        </div>
+        <br>
+        <div class="row mb-3" >
+        <div class="col-md-6 mx-auto" >
+            <p class="text-justify">
+                <b>Scale-aware Feature.</b> For a pixel $u$ sampled from a segment $S$ with scale $s$, the scale-aware feature is computed as:
+                \begin{equation}\label{eq:scale-aware}
+                    \phi(u,s) = \mathbf{W}_{1:M(s)}\theta(u)_{1:M(s)}
+                \end{equation}
+                Here, $\theta(u)$ is the rendered feature at pixel $u$, and $M(s)$ represents the number of dimensions in the feature field assigned to scale $s$.
+                <br><br>
+
+                <b>Hierarchical Loss.</b> With the rendered features $\theta(u)$ and the language-aligned teacher embeddings $\phi^{gt}$, we minimize the loss:
+                \begin{equation}\label{eq:hier-loss}
+                    \mathcal{L}_{\text{hier}} = \sum_{u,s} \mathcal{L}(\phi(u,s),\phi^{\operatorname{gt}}),
+                \end{equation}
+                where
+                where $\mathcal{L}=\mathcal{L}_{\text{2}}+\lambda\mathcal{L}_{\text{cos}}$ is a weighted combination of the L2 and cosine distances.
+                <br><br>
+
+                <b>Composite Embedding.</b> During inference, we compute composite embeddings defined as the weighted combination of all scale-aware features at a 3D point or a pixel.
+
+                The weights $\gamma^{3D}$ for a 3D point are defined as:
+                \begin{equation} \label{eq:gamma-3D}
+                    \gamma^\text{3D}_i = \underset{d}{\text{Softmax}}
+                    \left(
+                        \max_k \,(\mathbf{W}_{1:d} \Theta_{i,1:d})^\top \phi^{\text{canon}}_k
+                    \right),
+                \end{equation}
+                where $\{\phi^{\text{canon}}_k\}$ is the set of CLIP embeddings of the predefined canonical phrases: <i>object</i>, <i>stuff</i>, <i>thing</i>, <i>part</i> and <i>texture</i>.
+                The composite embedding is then computed as:
+                \begin{equation}
+                    \tilde{\Theta}_i = \begin{bmatrix}
+                    \sum_{d=1}^{D} \gamma_{i,d}^\text{3D} \\
+                    \sum_{d=2}^{D} \gamma_{i,d}^\text{3D} \\
+                    \vdots \\
+                    \gamma_{i,D}^\text{3D}
+                    \end{bmatrix} \odot \Theta_i
+                \end{equation}
+
+            </p>
+        </div>
+        </div>
+
+        <br>
+
+        <div class="row mb-4">
+            <div class="col-md-8 mx-auto">
+                <h2>Qualitative Comparisons</h2>
+                <p class="text-justify">
+                    Qualitative comparisons of our method with <a href="https://langsplat.github.io/">LangSplat</a>
+                    on scenes from the LERF dataset.
+                </p>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <img src="images/donuts_scene_small.png" class="img-responsive" alt="Qualitative results" width="100%">
+            </div>
+            <div class="col-md-8 mx-auto">
+                <h4 class="text-center">
+                    Scene: <i>Donuts</i>
+                </h4>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <img src="images/teatime_scene_small.png" class="img-responsive" alt="Qualitative results" width="100%">
+            </div> 
+            <div class="col-md-8 mx-auto">
+                <h4 class="text-center">
+                    Scene: <i>Teatime</i>
+                </h4>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <img src="images/figurines_scene_small.png" class="img-responsive" alt="Qualitative results" width="100%">
+            </div> 
+            <div class="col-md-8 mx-auto">
+                <h4 class="text-center">
+                    Scene: <i>Figurines</i>
+                </h4>
+            </div>
+        </div>
+
+        <br>
+
+        <br>
+
+    
+
+        
+        <div class="row mb-4">
+            <div class="col-md-8 mx-auto">
+                <h4 class="mb-3">Bibtex</h4>
+                    <pre><code>@InProceedings{bhalgat2024n2f2,
+    title = {N2F2: Hierarchical Scene Understanding with Nested Neural Feature Fields},
+    author = {Bhalgat, Yash and Laina, Iro and Henriques, Jo&atilde;o F and Zisserman, Andrew and Vedaldi, Andrea},
+    booktitle = {European Conference on Computer Vision},
+    year = {2024},
+}
+                    </code></pre>               
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-8 mx-auto">
+                <h4 class="mb-3">Acknowledgements</h4>
+                <p class="text-justify">
+                    We are grateful for funding from EPSRC AIMS CDT EP/S024050/1 and AWS (Y. Bhalgat), ERC-CoG UNION 101001212 (A. Vedaldi and I. Laina), EPSRC VisualAI EP/T028572/1 (I. Laina, A. Vedaldi and A. Zisserman), and Royal Academy of Engineering RF\201819\18\163 (J. Henriques).
+                </p>
+            </div>
+        </div>
+    </div> <!-- container -->
+</body>
