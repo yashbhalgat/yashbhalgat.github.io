@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
+
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Blog</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" type="image/png" href="images/yash_logo.png">
+
+  <style>
+    u.dotted {
+      border-bottom: 1px dotted #000;
+      text-decoration: none;
+    }
+  </style>
+
+  <style>
+    /* Style for the ClustrMaps container */
+    .clustrmaps-container {
+      margin-top: 50px; /* Space between content and the widget */
+      text-align: left; /* Aligns the widget to the left */
+    }
+  </style>
+
 </head>
+
 <body>
+  <!-- add a back link to the home page -->
+  <a href="index.html">< Back to Home</a>
   <!-- Some cute title for the blog -->
   <h1>Personal Blog</h1>
   <h3><i>The goal is to jot down my thoughts and experiences on various things here. I will get to it someday.</i></h3>
@@ -15,7 +40,10 @@
     <li><a href="blog/foundation_3d.html">3D Foundation Models</a></li>
   </ul>
 
-  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=g3xlHloT5hm9Ku44Z6zXSky-yNSfb0CGSoehTBP_d7U&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>
+  <div class="clustrmaps-container">
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=g3xlHloT5hm9Ku44Z6zXSky-yNSfb0CGSoehTBP_d7U&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>
+  </div>
+  
 
 </body>
 </html>
