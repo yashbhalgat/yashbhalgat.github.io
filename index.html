@@ -3,9 +3,8 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yash Bhalgat</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/yash_logo.png">
@@ -21,6 +20,11 @@
 <body>
 
   <nav class="navbar">
+    <button class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <ul>
       <li><a href="#news">News</a></li>
       <li><a href="#research">Research</a></li>
@@ -876,6 +880,25 @@
   </table>
 
   <!--script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=ppNj2MmKq82N8uj2zzgmrUkPLcDDci58wlNn-LWLsBo"></script-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.navbar ul');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.navbar ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                navToggle.classList.remove('active');
+            });
+        });
+    });
+  </script>
 
 </body>
 

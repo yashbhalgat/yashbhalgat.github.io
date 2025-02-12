@@ -198,3 +198,117 @@ span.highlight {
 .cta-button:hover {
   background-color: #145c9e;
 }
+
+/* Hamburger menu button - hidden by default */
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 5px auto;
+  background: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .navbar ul.show {
+    display: block;
+  }
+
+  .navbar ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  /* Animation for hamburger to X */
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+
+
+/* Remove all the previous media queries I suggested and just add these minimal ones */
+@media screen and (max-width: 768px) {
+    /* Fix only the navigation bar for mobile */
+    .nav-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar ul.show {
+        display: block;
+    }
+
+    .navbar ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Adjust any fixed widths to be percentage-based */
+    table {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+
+    /* Just ensure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Simple fix for logo table */
+    table[width="100%"] tr {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    table[width="100%"] td {
+        width: auto !important;
+        padding: 10px !important;
+    }
+
+    /* Make all logos a good size */
+    table[width="100%"] img {
+        height: 50px !important;
+        width: auto !important;
+    }
+}
