@@ -25,21 +25,38 @@
     }
   </style>
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    .breadcrumbs { margin: 12px 16px; text-align: left; }
+    .crumb { color: #35383e; text-decoration: none; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 20px; }
+    .crumb:hover { color: #000000; text-decoration: underline; }
+    .blog-container { max-width: 720px; margin: 40px auto; line-height: 1.8; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .blog-container h1 { margin: 10px 0 8px 0; font-size: 40px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+    .blog-container h3 { margin: 8px 0 16px 0; font-size: 18px; font-weight: 600; font-style: italic; }
+    .post-list { display: flex; flex-direction: column; gap: 14px; }
+    .post-card { display: block; padding: 14px 16px; background: #f9f9f9; border: 1px solid #eee; border-radius: 10px; color: #111827; text-decoration: none; font-weight: 600; }
+    .post-card:hover { background: #f3f4f6; text-decoration: none; }
+  </style>
+
 </head>
 
 <body>
-  <!-- add a back link to the home page -->
-  <a href="index.html">< Back to Home</a>
-  <!-- Some cute title for the blog -->
-  <h1>Personal Blog</h1>
-  <h3><i>The goal is to jot down my thoughts and experiences on various things here. I will get to it someday.</i></h3>
-  <ul>
-    <li><a href="blog/quotes.html">Favourite Quotes</a></li>
-    <li><a href="blog/research_internship.html">How to get an AI Research Internship?</a></li>
-    <li><a href="blog/phd_app.html">Applying for a PhD in AI? Read this.</a></li>
-    <li><a href="blog/leetcode.html">How to Leetcode?</a></li>
-    <li><a href="blog/foundation_3d.html">3D Foundation Models</a></li>
-  </ul>
+  <!-- breadcrumbs -->
+  <div class="breadcrumbs">
+    <a class="crumb" href="index.html">About Yash</a>
+  </div>
+  <div class="blog-container">
+    <h1>Personal Blog</h1>
+    <h3><i>The goal is to jot down my thoughts and experiences on various things here. I will get to it someday.</i></h3>
+    <div class="post-list">
+      <a class="post-card" href="blog/quotes.html">Favourite Quotes</a>
+      <a class="post-card" href="blog/phd-or-not-phd.html">Should You Apply for a PhD in AI (2025‑26)?</a>
+      <a class="post-card" href="blog/research_internship.html">How to get an AI Research Internship?</a>
+      <a class="post-card" href="blog/phd_app.html">Applying for a PhD in AI? Read this.</a>
+      <a class="post-card" href="blog/leetcode.html">How to Leetcode?</a>
+      <a class="post-card" href="blog/foundation_3d.html">3D Foundation Models</a>
+    </div>
+  </div>
 
   <!-- <div class="clustrmaps-container">
     <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=g3xlHloT5hm9Ku44Z6zXSky-yNSfb0CGSoehTBP_d7U&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>

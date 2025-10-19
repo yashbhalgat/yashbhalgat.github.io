@@ -1,9 +1,20 @@
-<!-- add a back link to the home page -->
-<a href="../index.html">< Home</a> | <a href="../blog.html">< Blogs</a>
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+  <a class="crumb" href="../index.html">About Yash</a>
+  <a class="crumb" href="../blog.html">Blogs</a>
+</div>
 
-<h1>My Favourite Quotes</h1>
+<div class="blog-container">
+  <h1>My Favourite Quotes</h1>
 
 <style>
+  .blog-container { max-width: 720px; margin: 40px auto; line-height: 1.8; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+  .blog-container h1 { margin: 10px 0 8px 0; font-size: 40px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  .breadcrumbs { margin: 12px 16px; }
+    .crumb { color: #35383e; text-decoration: none; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 20px; }
+    .crumb:hover { color: #000000; text-decoration: underline; }
+    .crumb + .crumb::before { content: '|'; margin: 0 10px; color: #8e9195; }
   .quote-container {
     margin: 30px 0;
     padding: 20px;
@@ -25,7 +36,7 @@
   }
 </style>
 
-<div class="quote-container">
+  <div class="quote-container">
   <p class="quote">"Suffering is the difference between expectation and reality."</p>
 </div>
 
@@ -45,4 +56,6 @@
   <p class="quote">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
   <p class="author">- Bhagavad Gita, Chapter 2, Verse 47</p>
   <p class="quote"><b>Translation:</b> You have the right to work only but never to its fruits. Let not the fruits of action be your motive, nor let your attachment be to inaction.</p>
+</div>
+
 </div>

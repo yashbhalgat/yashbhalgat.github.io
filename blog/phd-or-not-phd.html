@@ -1,0 +1,198 @@
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+  <a class="crumb" href="../index.html">About Yash</a>
+  <a class="crumb" href="../blog.html">Blogs</a>
+  </div>
+  
+  <div class="blog-container">
+    <h1>Should You Apply for a PhD in AI (2025-26)?</h1>
+    <div class="post-meta">Date: Oct 19, 2025 | Estimated Reading Time: 10 min | Author: Yash Bhalgat</div>
+    <div class="post-thumb"><img src="../images/phd-or-not-phd.png" alt="Should You Apply for a PhD in AI (2025-26)? thumbnail"></div>
+  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+      .breadcrumbs { margin: 12px 16px; }
+      .crumb { color: #35383e; text-decoration: none; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 20px; }
+      .crumb:hover { color: #000000; text-decoration: underline; }
+      .crumb + .crumb::before { content: '|'; margin: 0 10px; color: #8e9195; }
+      .blog-container {
+        max-width: 720px;
+        margin: 40px auto;
+        line-height: 1.8;
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .blog-container h1 {
+        margin-top: 10px;
+        margin-bottom: 8px;
+        font-size: 40px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+      }
+      .blog-container h2 {
+        margin-top: 28px;
+        margin-bottom: 8px;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .blog-container h3 {
+        margin-top: 24px;
+        margin-bottom: -6px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #590117;
+      }
+      .blog-container p, .blog-container li {
+        font-size: 16px;
+      }
+      .post-meta {
+        margin: 4px 0 12px 0;
+        color: #6b7280;
+        font-size: 13px;
+      }
+      .post-thumb { margin: 0 0 12px 0; border: 1px solid #eee; border-radius: 10px; overflow: hidden; background: #f9f9f9; }
+      .post-thumb img { width: 100%; display: block; }
+      .disclaimer {
+        margin: 18px 0 24px 0;
+        padding: 10px 14px;
+        border-left: 4px solid #333;
+        background: #f9f9f9;
+        border-radius: 6px;
+      }
+      .disclaimer p {
+        margin: 0;
+      }
+      .blog-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 18px 0;
+        font-variant-numeric: tabular-nums;
+      }
+      .blog-table th, .blog-table td {
+        border: 1px solid #ddd;
+        padding: 8px 10px;
+        text-align: left;
+      }
+      .blog-table th {
+        background: #f3f3f3;
+        font-weight: 700;
+      }
+      .blog-note {
+        color: #555;
+        font-style: italic;
+      }
+      .toc {
+        margin: 0 0 20px 0;
+        padding: 12px 16px;
+        background: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 6px;
+      }
+      .toc-header {
+        margin: 0;
+        font-weight: 700;
+        cursor: pointer;
+        user-select: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .triangle {
+        display: inline-block;
+        width: 1em;
+        text-align: center;
+      }
+      .toc ul {
+        margin: 8px 0 0 18px;
+      }
+      .toc ul ul {
+        margin-top: 4px;
+      }
+      .toc-list {
+        display: none;
+      }
+      .toc.expanded .toc-list {
+        display: block;
+        margin-top: 8px;
+      }
+    </style>
+  
+    <div class="disclaimer">
+      <p><strong>Disclaimer:</strong> These are my personal reflections from my own experience in academia and industry, and they're naturally biased by the research area I work in and the opportunities I've had. Your situation may differ; so talk to current students, recent PhD grads, professors, and industry researchers before deciding. Do your own research and weigh multiple viewpoints before you apply.</p>
+    </div>
+  
+    <div class="toc">
+      <div class="toc-header" id="toc-header" aria-expanded="false"><span class="triangle" aria-hidden="true">▸</span> Table of Contents</div>
+      <ul class="toc-list">
+        <li><a href="#why-im-writing-this">Why I'm Writing This</a></li>
+        <li><a href="#the-2025-landscape">2025 Landscape: Plenty of Compute for Some, Not for All</a>
+          
+        </li>
+        <li><a href="#benefits-tradeoffs-fit">PhD vs Industry: Benefits, Tradeoffs, and Fit</a>
+          
+        </li>
+        <li><a href="#other-non-technical-factors">Other Non-Technical Factors</a></li>
+        <li><a href="#final-thoughts">Final Thoughts</a></li>
+      </ul>
+    </div>
+    <script>
+      (function() {
+        var toc = document.querySelector('.toc');
+        if (!toc) return;
+        var header = toc.querySelector('#toc-header');
+        var triangle = toc.querySelector('.triangle');
+        var expanded = false;
+        function setState(open) {
+          expanded = open;
+          if (open) {
+            toc.classList.add('expanded');
+            if (triangle) triangle.textContent = '▾';
+            header.setAttribute('aria-expanded', 'true');
+          } else {
+            toc.classList.remove('expanded');
+            if (triangle) triangle.textContent = '▸';
+            header.setAttribute('aria-expanded', 'false');
+          }
+        }
+        header.addEventListener('click', function() { setState(!expanded); });
+        setState(false);
+      })();
+    </script>
+  
+    <h2 id="why-im-writing-this">Why I'm Writing This</h2>
+    <p>I've been a PhD for the last 4 years at Oxford's <a href="https://www.robots.ox.ac.uk/~vgg/">Visual Geometry Group (VGG)</a>, focusing on 3D/4D understanding and generative modeling. Before this, I spent 2 years at <a href="https://www.qualcomm.com/research/artificial-intelligence">Qualcomm AI Research</a>, and most recently at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a>. Along the way, I've also worked with a handful of startups as a advisor/consultant. I've trained models on everything from a single GPU on my workstation to hundreds of H100s in a hyperscale cluster. I've watched friends skip the doctorate and thrive, while others dove into the PhD path and never looked back. Every October, the same questions come up from students considering PhD applications. This post is my attempt to collect those conversations and share a candid perspective for anyone weighing whether to apply.</p>
+  
+    <h2 id="the-2025-landscape">2025 Landscape: Plenty of Compute for Some, Not for All</h2>
+    <p>The centre of the field in AI keeps sliding toward well-funded industrial labs. A single large vision-language model now costs more to train than most academic labs spend on research in a year. Academia still remains invaluable though, but it has tilted toward questions that do not need a hundred-billion-parameter run: e.g. alignment probing, benchmark design, theory, cross-disciplinary work with law or medicine, and low-resource deployments. If your ambition is to spin up the next frontier model, you will struggle to do that from campus <em>unless you partner with industry</em>.</p>
+  
+    <h3 id="impactful-research-now-happens-in-industry">A Lot of Impactful Research Now Happens in Industry</h3>
+    <p>Industry is not merely “productising” academic ideas; it is driving first-principles research too. E.g. <a href="https://www.nature.com/articles/s41586-024-07487-w">AlphaFold 3</a> was led from inside industry (DeepMind / Isomorphic Labs) and reset what “state of the art” even means in structure prediction -- <em>note: this doesn't mean there hasn't been progress from academia</em>. The same pattern holds in video and 3D: many of the step-changes you notice in the <b>last 2 years</b> -- stronger video diffusion backbones, 3D generation models, large multimodal systems -- have emerged from groups with the scale that universities simply doesn't have. Startups with tight scope and capital - e.g. <a href="https://lumalabs.ai/">Luma</a>, <a href="https://runwayml.com">Runway</a>, <a href="https://pika.art">Pika</a> on video; <a href="https://covariant.ai">Covariant</a>, <a href="https://physicalintelligence.ai">Physical Intelligence</a>, <a href="https://www.figure.ai">Figure</a> on robotics - ship ideas quickly because they sit next to the data and hardware.</p>
+
+    <p>If your goal is to research computer vision problems that are primarily determined by "scale" -- e.g. video generation, 3D generation, world modeling, robotics foundation models -- then the decisive infrastructure sits inside a handful of companies and well-funded startups. The last three years made that obvious: frontier models are trained, evaluated and iterated where there is elastic access to clusters, curated data flywheels, and integrated tooling.</p>
+  
+    <h3 id="your-problem-might-be-obsolete-by-graduation">Your Research Problem Might Be Obsolete by Graduation</h3>
+    <p>Another uncomfortable reality: the pace of AI research is brutal. The problem that seems worth spending four years on today might get solved by a large foundation model or made irrelevant by a new scale-based paradigm halfway through your doctorate. That's not a reason to avoid the PhD entirely, but you have to be honest about the risk -- it means you need to pick problems that age well: questions about data, evaluation, invariances, safety/privacy, interfaces, etc. </p>
+  
+    <h2 id="benefits-tradeoffs-fit">PhD vs Industry: Benefits, Tradeoffs, and Fit</h2>
+    <p>There are real benefits and tradeoffs on both paths. Use these as filters, not rules.</p>
+    <h3 id="when-a-phd-makes-sense">When a PhD Makes Sense</h3>
+    <p>A PhD is rational when the problem you care about benefits from long, uninterrupted focus and does not require frontier-scale training runs to make progress. Think theory and algorithms with evaluable, compute-light cores; measurement and evaluation (new benchmarks, stress tests, interpretability studies); cross-disciplinary work where time, access and ethics matter more than raw scale (e.g. medical imaging, federated learning, regulatory and safety research). It also makes sense when you explicitly need the credential for faculty positions or certain national labs. If four years on one hard question sounds like a feature, not a bug, this is the right container.</p>
+  
+    <h3 id="when-to-skip-it">When to Skip the PhD</h3>
+    <p>As I mentioned above, if you intend to work on computer vision algorithms whose frontier is mostly determined by scale - video generation, 3D generation, world modelling, and large multimodal models - then a PhD is often the slow path. Scaling is eating hand-crafted pipelines; the biggest wins now come from data curation, training infrastructure, and careful ablation at sizes that academic labs cannot sustain. The most relevant experiments are simply out of reach without industrial partnerships. That does not make academic contributions meaningless -- it means their centre of mass has shifted toward ideas that do not require billion-parameter training runs.</p>
+    <p>There is also a methodological shift you need to price in. Many optimisation-heavy, cascaded pipelines (e.g. 3D reconstruction, SLAM, etc.) are collapsing into feed-forward, end-to-end pretraining based methods (e.g. <a href="https://vgg-t.github.io/">VGGT</a>, etc.). You can still publish well-scoped, elegant ideas in that spirit, but the popular workflows now point to large pretrained backbones followed by task-specific adaptation.</p>
+  
+    <h2 id="other-non-technical-factors">Other Non-Technical Factors</h2>
+    <h3 id="research-freedom">Research Freedom</h3>
+    <p>Academia optimises for <b>depth and autonomy</b>: you can define problems and success criteria with advisor's supervision. The cost is slow feedback and limited resources. Industry optimises for <b>throughput and integration</b>, with faster learning through deployment and failure; the trade-off is shifting agendas due to organisational priorities, leadership, company politics, etc.</p>
+
+    <h3 id="soft-skills">Soft Skills You Build During a PhD</h3>
+    <p>A good PhD is a forcing function for durable soft skills that compound over a career: working independently with minimal supervision; articulating open-ended questions into tractable problem statements; communicating ideas crisply to diverse audiences; and of course, writing good papers, (and even grants). These skills travel well across roles (research, product, infra) and reduce coordination cost when you later lead projects or teams.</p>
+
+    <h3 id="getting-jobs-without-phd">Getting Research Jobs Without a PhD</h3>
+    <p>For many areas, you can land strong research-engineering roles after a Master's - and sometimes a Bachelor's - by doing targeted, high-leverage work: join active research projects, ship open-source code, and co-author a few well-scoped papers. With 3-4 years in such a role (at big tech or a focused startup), you often gain experience that is more directly relevant than a 4-year PhD - especially in scale-driven domains like video, 3D, and multimodal systems where access to data and clusters is decisive. As noted above, which path is better depends on the problem type, your learning style, and whether your target work benefits more from depth and autonomy (PhD) or from throughput and integrated deployment (industry).</p>
+  
+    <h2 id="final-thoughts">Final Thoughts</h2>
+    <p>Decide based on your long-term goals, not momentum. Don't start a PhD because "everyone else is doing it". <b>My strong recommendation:</b> get industry experience first - research or non-research - to pressure-test your interests, build context, and learn how you like the pace and constraints. After 1-3 years, you'll know whether a PhD is the right container for what you want to build; if yes, you'll arrive with sharper questions and better taste.</p>
+  </div>
+  
