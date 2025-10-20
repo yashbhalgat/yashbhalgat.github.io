@@ -73,6 +73,15 @@
       .blog-container p, .blog-container li {
         font-size: 16px;
       }
+      .blog-container a {
+        color: #1f4b99;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .blog-container a:hover, .blog-container a:focus {
+        color: #133a7a;
+        text-decoration-color: #133a7a;
+      }
       .post-meta {
         margin: 4px 0 12px 0;
         color: #6b7280;
@@ -159,8 +168,9 @@
         <li><a href="#benefits-tradeoffs-fit">PhD vs Industry: Benefits, Tradeoffs, and Fit</a>
           
         </li>
-        <li><a href="#other-non-technical-factors">Other Non-Technical Factors</a></li>
+        <li><a href="#other-non-technical-factors">PhD is MORE than just Research</a></li>
         <li><a href="#final-thoughts">Final Thoughts</a></li>
+        <li><a href="#thanks">Thanks</a></li>
       </ul>
     </div>
     <script>
@@ -183,18 +193,42 @@
           }
         }
         header.addEventListener('click', function() { setState(!expanded); });
-        setState(false);
+        setState(true);
+      })();
+    </script>
+    <script>
+      (function() {
+        function setLinksToOpenInNewTab() {
+          var links = document.querySelectorAll('a[href]');
+          links.forEach(function(link) {
+            // Skip Table of Contents links
+            if (link.closest('.toc')) return;
+            if (link.getAttribute('target') !== '_blank') {
+              link.setAttribute('target', '_blank');
+            }
+            var rel = link.getAttribute('rel') || '';
+            if (!/\bnoopener\b/.test(rel)) rel += ' noopener';
+            if (!/\bnoreferrer\b/.test(rel)) rel += ' noreferrer';
+            link.setAttribute('rel', rel.trim());
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setLinksToOpenInNewTab);
+        } else {
+          setLinksToOpenInNewTab();
+        }
       })();
     </script>
   
     <h2 id="why-im-writing-this">Why I'm Writing This</h2>
-    <p>I've been a PhD for the last 4 years at Oxford's <a href="https://www.robots.ox.ac.uk/~vgg/">Visual Geometry Group (VGG)</a>, focusing on 3D/4D understanding and generative modeling. Before this, I spent 2 years at <a href="https://www.qualcomm.com/research/artificial-intelligence">Qualcomm AI Research</a>, and most recently at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a>. Along the way, I've also worked with a handful of startups as a advisor/consultant. I've trained models on everything from a single GPU on my workstation to hundreds of H100s in a hyperscale cluster. I've watched friends skip the doctorate and thrive, while others dove into the PhD path and never looked back. Every October, the same questions come up from students considering PhD applications. This post is my attempt to collect those conversations and share a candid perspective for anyone weighing whether to apply.</p>
+    <p>I've been a PhD student for the last 4 years at Oxford's <a href="https://www.robots.ox.ac.uk/~vgg/">Visual Geometry Group (VGG)</a>, focusing on 3D/4D understanding and generative modeling. Before this, I spent 2 years at <a href="https://www.qualcomm.com/research/artificial-intelligence">Qualcomm AI Research</a>, and most recently at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a>. Along the way, I've also worked with a handful of startups as a advisor/consultant. I've trained models on everything from a single GPU on my workstation to hundreds of H100s in a hyperscale cluster.</p> 
+    <p>I've watched friends skip the PhD and thrive, while others dove into the PhD path and never looked back. I have personally hugely benefited from my PhD, but <b>times have changed</b>. Every October, the same questions come up from students considering PhD applications. This post is my attempt to collect those conversations and share a candid perspective for anyone weighing whether to apply.</p>
   
-    <h2 id="the-2025-landscape">2025 Landscape: Plenty of Compute for Some, Not for All</h2>
-    <p>The centre of the field in AI keeps sliding toward well-funded industrial labs. A single large vision-language model now costs more to train than most academic labs spend on research in a year. Academia still remains invaluable though, but it has tilted toward questions that do not need a hundred-billion-parameter run: e.g. alignment probing, benchmark design, theory, cross-disciplinary work with law or medicine, and low-resource deployments. If your ambition is to spin up the next frontier model, you will struggle to do that from campus <em>unless you partner with industry</em>.</p>
+   <h2 id="the-2025-landscape">2025 Landscape: Plenty of Compute for Some, Not for All</h2>
+   <p>The centre of scale‑dependent AI work keeps sliding toward well‑funded industrial labs. A single large vision-language model now costs more to train than most academic labs spend on research in a year. Academia still remains invaluable though, but it has tilted toward questions that do not need a hundred-billion-parameter run: e.g. alignment probing, benchmark design, theory, cross-disciplinary work with law or medicine, and low-resource deployments. If your ambition is to spin up the next frontier model, you will struggle to do that from campus <em>unless you partner with industry</em>.</p>
   
-    <h3 id="impactful-research-now-happens-in-industry">A Lot of Impactful Research Now Happens in Industry</h3>
-    <p>Industry is not merely “productising” academic ideas; it is driving first-principles research too. E.g. <a href="https://www.nature.com/articles/s41586-024-07487-w">AlphaFold 3</a> was led from inside industry (DeepMind / Isomorphic Labs) and reset what “state of the art” even means in structure prediction -- <em>note: this doesn't mean there hasn't been progress from academia</em>. The same pattern holds in video and 3D: many of the step-changes you notice in the <b>last 2 years</b> -- stronger video diffusion backbones, 3D generation models, large multimodal systems -- have emerged from groups with the scale that universities simply doesn't have. Startups with tight scope and capital - e.g. <a href="https://lumalabs.ai/">Luma</a>, <a href="https://runwayml.com">Runway</a>, <a href="https://pika.art">Pika</a> on video; <a href="https://covariant.ai">Covariant</a>, <a href="https://physicalintelligence.ai">Physical Intelligence</a>, <a href="https://www.figure.ai">Figure</a> on robotics - ship ideas quickly because they sit next to the data and hardware.</p>
+   <h3 id="impactful-research-now-happens-in-industry">A Lot of Impactful Work Now Happens in Industry</h3>
+   <p>Industry is not merely “productising” academic ideas anymore; it often drives first‑principles research too, particularly in scaling, integrating, and validating ideas at unprecedented scales. Many foundational ideas still originate in academia and open communities (e.g., diffusion models, <a href="https://arxiv.org/pdf/2205.14135">FlashAttention</a>) and are then stress‑tested and scaled in industry. However, in the <b>last 2 years</b>, in areas such as video/3D generation and large VLMs, many of the step‑changes you notice have come from (industrial) groups with the compute and data access to iterate quickly. Apart from bigtech (Google DeepMind, Meta, NVIDIA, etc.), startups with tight scope and capital - e.g. <a href="https://lumalabs.ai/">Luma</a>, <a href="https://runwayml.com">Runway</a>, <a href="https://pika.art">Pika</a> on video; <a href="https://covariant.ai">Covariant</a>, <a href="https://physicalintelligence.ai">Physical Intelligence</a>, <a href="https://www.figure.ai">Figure</a> on robotics - ship ideas quickly because they sit next to the data and hardware.</p>
 
     <p>If your goal is to research computer vision problems that are primarily determined by "scale" -- e.g. video generation, 3D generation, world modeling, robotics foundation models -- then the decisive infrastructure sits inside a handful of companies and well-funded startups. The last three years made that obvious: frontier models are trained, evaluated and iterated where there is elastic access to clusters, curated data flywheels, and integrated tooling.</p>
   
@@ -210,7 +244,7 @@
     <p>As I mentioned above, if you intend to work on computer vision algorithms whose frontier is mostly determined by scale - video generation, 3D generation, world modelling, and large multimodal models - then a PhD is often the slow path. Scaling is eating hand-crafted pipelines; the biggest wins now come from data curation, training infrastructure, and careful ablation at sizes that academic labs cannot sustain. The most relevant experiments are simply out of reach without industrial partnerships. That does not make academic contributions meaningless -- it means their centre of mass has shifted toward ideas that do not require billion-parameter training runs.</p>
     <p>There is also a methodological shift you need to price in. Many optimisation-heavy, cascaded pipelines (e.g. 3D reconstruction, SLAM, etc.) are collapsing into feed-forward, end-to-end pretraining based methods (e.g. <a href="https://vgg-t.github.io/">VGGT</a>, etc.). You can still publish well-scoped, elegant ideas in that spirit, but the popular workflows now point to large pretrained backbones followed by task-specific adaptation.</p>
   
-    <h2 id="other-non-technical-factors">Other Non-Technical Factors</h2>
+    <h2 id="other-non-technical-factors">PhD is MORE than just Research</h2>
     <h3 id="research-freedom">Research Freedom</h3>
     <p>Academia optimises for <b>depth and autonomy</b>: you can define problems and success criteria with advisor's supervision. The cost is slow feedback and limited resources. Industry optimises for <b>throughput and integration</b>, with faster learning through deployment and failure; the trade-off is shifting agendas due to organisational priorities, leadership, company politics, etc.</p>
 
@@ -221,6 +255,13 @@
     <p>For many areas, you can land strong research-engineering roles after a Master's - and sometimes a Bachelor's - by doing targeted, high-leverage work: join active research projects, ship open-source code, and co-author a few well-scoped papers. With 3-4 years in such a role (at big tech or a focused startup), you often gain experience that is more directly relevant than a 4-year PhD - especially in scale-driven domains like video, 3D, and multimodal systems where access to data and clusters is decisive. As noted above, which path is better depends on the problem type, your learning style, and whether your target work benefits more from depth and autonomy (PhD) or from throughput and integrated deployment (industry).</p>
   
     <h2 id="final-thoughts">Final Thoughts</h2>
-    <p>Decide based on your long-term goals, not momentum. Don't start a PhD because "everyone else is doing it". <b>My strong recommendation:</b> get industry experience first - research or non-research - to pressure-test your interests, build context, and learn how you like the pace and constraints. After 1-3 years, you'll know whether a PhD is the right container for what you want to build; if yes, you'll arrive with sharper questions and better taste.</p>
+    <p>Don't start a PhD because "everyone else is doing it".</p> 
+    <p><b>Get industry experience first</b> (research or non-research) to pressure-test your interests, and build context about the real world. After 1-3 years, you'll know if a PhD is the right container for what you want to build; if yes, you'll arrive with sharper questions and better taste.</p>
+    <p><b>Be dynamic and adaptive</b>: Even if your PhD topic loses relevance, progress keeps doors open. Pivot if the field shifts - your core skills in research, design, and communication transfer across topics; flexibility is your real edge.</p>
+
+
+    <h2 id="thanks">Thanks</h2>
+    Thanks to <a href="https://pramitsaha.github.io/">Pramit</a> and <a href="https://bpiyush.github.io/">Piyush</a> for the insightful discussions and feedback on this post.
+
   </div>
   
